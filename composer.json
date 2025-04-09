@@ -1,0 +1,21 @@
+{
+    "name": "asmoday74/yii2-timezone",
+    "description": "This component allows you to automatically determine the temporary zone of the user and set it up in the YII2 settings for the correct operation of temporary representations.",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","timezone"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maksim Klimov",
+            "email": "asm@mail-tm.ru"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "asmoday74\\timezone\\": "src"
+        }
+    }
+}
