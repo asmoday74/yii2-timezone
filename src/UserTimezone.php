@@ -15,7 +15,7 @@ class UserTimezone extends \yii\base\Component
      * Action to check the user timezone
      * @var string
      */
-    public $actionRoute = '/site/timezone';
+    public $controllerName = 'timezone';
 
     /**
      * Default timezone name (ex: Europe/Moscow)
@@ -30,19 +30,25 @@ class UserTimezone extends \yii\base\Component
     private $_userTimezone;
 
     /**
+     * @var string
+     */
+    private $_actionRoute;
+
+    /**
      * Registering offset-getter if timezone is not set
      */
     public function init()
     {
-        $this->actionRoute = Url::toRoute($this->actionRoute);
+        $this->_actionRoute = Url::toRoute('/' . $this->controllerName . '/index');
         $this->_userTimezone = Yii::$app->session->get('timezone');
 
         if (($this->_userTimezone == null) || ($this->_userTimezone == "0")) {
-            $this->registerTimezoneScript($this->actionRoute);
+            $this->registerTimezoneScript($this->_actionRoute);
             $this->_userTimezone = $this->defaultTimezone;
         }
 
         Yii::$app->formatter->timeZone = $this->_userTimezone;
+        Yii::$app->controllerMap[$this->controllerName] = 'asmoday74\timezone\controllers\TimezoneController';
     }
 
 
