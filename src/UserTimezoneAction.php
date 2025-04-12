@@ -5,7 +5,7 @@ namespace asmoday74\timezone;
 use Yii;
 use DateTimeZone;
 
-class UserTimezoneAction extends yii\base\Action
+class UserTimezoneAction extends \yii\base\Action
 {
     /**
      * @throws \yii\base\ExitException

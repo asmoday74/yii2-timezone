@@ -64,11 +64,13 @@ class UserTimezone extends \yii\base\Component
         Yii::$app->on(Controller::EVENT_BEFORE_ACTION, function ($event) use ($actionRoute) {
             $view = $event->sender->view;
             $js = <<<JS
-                let timezone = '';
-                let timezoneAbbr = '';
+                var timezone = '';
+                var timezoneAbbr = '';
                 try {
                     timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
                     timezoneAbbr = /\((.*)\)/.exec(new Date().toString())[1];
+                    console.log(timezone);
+                    console.log(timezoneAbbr);
                 }
                 catch(err) {
                     console.log(err);
