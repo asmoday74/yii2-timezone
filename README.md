@@ -36,7 +36,7 @@ $config = [
         ...
         'timezone' => [
             'class' => asmoday74\timezone\UserTimezone::class,
-            'actionRoute' => '/site/timezone',
+            'controllerName' => 'timezone', //this is default name
             'defaultTimezone' => 'Europe/Moscow'
         ],
         ...
